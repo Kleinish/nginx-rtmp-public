@@ -21,7 +21,7 @@ RUN mkdir /tmp/working && cd /tmp/working;\
 	unzip master.zip;\
 	cd nginx-1.7.9;\
 	./configure --with-http_ssl_module --add-module=../nginx-rtmp-module-master;\
-	make install
+	make install clean
 	
 RUN rm -r /tmp/working
 
@@ -37,6 +37,8 @@ RUN apt-get -y install software-properties-common;\
 	apt-get -y install ffmpeg
 	
 # Clean
-# RUN apt-get purge wget unzip build-essential libpcre3 libpcre3-dev libssl-dev software-properties-common
+RUN apt-get -y purge wget unzip build-essential libpcre3 libpcre3-dev libssl-dev software-properties-common
+
+EXPOSE 80
 
 CMD service nginx start
