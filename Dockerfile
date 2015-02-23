@@ -22,6 +22,8 @@ RUN mkdir /tmp/working && cd /tmp/working;\
 	cd nginx-1.7.9;\
 	./configure --with-http_ssl_module --add-module=../nginx-rtmp-module-master;\
 	make install
+	
+RUN rm -r /tmp/working
 
 # Install daemon
 RUN wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx;\
@@ -29,6 +31,7 @@ RUN wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O 
 	update-rc.d nginx defaults
 
 # Install additional decoder 
-RUN apt-add-repository ppa:jon-severinsson/ffmpeg;\
+RUN apt-get -y install software-properties-common;\
+	apt-add-repository ppa:jon-severinsson/ffmpeg;\
 	apt-get update;\
-	apt-get install ffmpeg
+	apt-get -y install ffmpeg
