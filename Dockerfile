@@ -36,8 +36,8 @@ RUN apt-get -y install software-properties-common;\
 	apt-get update;\
 	apt-get -y install ffmpeg
 	
-# Clean
-RUN apt-get -y purge wget unzip build-essential libpcre3 libpcre3-dev libssl-dev software-properties-common
+# Clean // TODO: NOT WORKING
+# RUN apt-get -y purge wget unzip build-essential libpcre3 libpcre3-dev libssl-dev software-properties-common
 
 EXPOSE 80
 
