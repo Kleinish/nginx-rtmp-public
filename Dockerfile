@@ -21,10 +21,10 @@ RUN tar -zxvf nginx-1.7.9.tar.gz
 RUN unzip master.zip
 RUN cd nginx-1.7.9
 
-RUN ./configure --with-http_ssl_module --add-module=../nginx-rtmp-module-master
-RUN make
-RUN make install
+# RUN ./configure --with-http_ssl_module --add-module=../nginx-rtmp-module-master
+# RUN make
+# RUN make install
 
-RUN wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx
-RUN chmod +x /etc/init.d/nginx
-RUN update-rc.d nginx defaults
+# RUN wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx
+# RUN chmod +x /etc/init.d/nginx
+# RUN update-rc.d nginx defaults
