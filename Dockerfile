@@ -36,12 +36,20 @@ RUN apt-get -y install software-properties-common;\
 	apt-get update;\
 	apt-get -y install ffmpeg
 	
+# expose HTTP
+EXPOSE 80
+
+
+## run as daemon
+# tell Nginx to stay foregrounded
+RUN echo "daemon off;" >> /usr/local/nginx/conf/nginx.conf
+# Run
+CMD service nginx start
+
+## run interactive
+#  CMD service nginx start && /bin/bash
+
+
 # Clean // TODO: NOT WORKING
 # RUN apt-get -y purge wget unzip build-essential libpcre3 libpcre3-dev libssl-dev software-properties-common
 
-EXPOSE 80
-
-CMD service nginx start;\
-        while true;\
-        do sleep 1d;\
-        done
