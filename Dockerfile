@@ -41,4 +41,4 @@ RUN apt-get -y install software-properties-common;\
 
 EXPOSE 80
 
-CMD service nginx start
+# CMD service nginx start
