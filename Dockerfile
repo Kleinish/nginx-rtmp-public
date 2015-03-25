@@ -39,15 +39,15 @@ RUN apt-get -y install software-properties-common;\
 # expose HTTP
 EXPOSE 80
 
+ADD nginx.conf /usr/local/nginx/conf/nginx.conf
+RUN mkdir -p /var/log/nginx/
 
 ## run as daemon
-# tell Nginx to stay foregrounded
-RUN echo "daemon off;" >> /usr/local/nginx/conf/nginx.conf
 # Run
-CMD service nginx start
+#CMD service nginx start
 
 ## run interactive
-#  CMD service nginx start && /bin/bash
+  CMD service nginx start && /bin/bash
 
 
 # Clean // TODO: NOT WORKING
