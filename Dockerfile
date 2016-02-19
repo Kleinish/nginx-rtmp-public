@@ -7,6 +7,10 @@ FROM       ubuntu:latest
 # Format: MAINTAINER Name <email@addr.ess>
 MAINTAINER Andreas W. Prang <writeAmail@me.com>
 
+# VARIABLES
+ENV nginxVersion nginx-1.9.2
+
+
 # Installation:
 RUN apt-get update;\
         apt-get -y install wget;\
@@ -15,11 +19,11 @@ RUN apt-get update;\
 
 # Install nginx with RTMP
 RUN mkdir /tmp/working && cd /tmp/working;\
-        wget http://nginx.org/download/nginx-1.7.9.tar.gz;\
+        wget http://nginx.org/download/${nginxVersion}.tar.gz;\
         wget https://github.com/arut/nginx-rtmp-module/archive/master.zip;\
-        tar -zxvf nginx-1.7.9.tar.gz;\
+        tar -zxvf ${nginxVersion}.tar.gz;\
         unzip master.zip;\
-        cd nginx-1.7.9;\
+        cd ${nginxVersion};\
         ./configure --with-http_ssl_module --add-module=../nginx-rtmp-module-master;\
         make install clean
 
