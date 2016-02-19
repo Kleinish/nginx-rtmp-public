@@ -40,9 +40,9 @@ RUN wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O 
 #        apt-get update;\
 #        apt-get -y install ffmpeg
 
-RUN apt-add-repository ppa:samrog131/ppa \
-         apt-get update \
-         apt-get install FFmpeg-real \
+RUN apt-add-repository ppa:samrog131/ppa; \
+         apt-get update; \
+         apt-get install FFmpeg-real; \
          ln -sf /opt/FFmpeg/bin/FFmpeg /usr/bin/FFmpeg
 
 # expose HTTP
