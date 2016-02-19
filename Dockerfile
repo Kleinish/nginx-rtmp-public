@@ -35,10 +35,15 @@ RUN wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O 
         update-rc.d nginx defaults
 
 # Install additional decoder
-RUN apt-get -y install software-properties-common;\
-        apt-add-repository ppa:jon-severinsson/ffmpeg;\
-        apt-get update;\
-        apt-get -y install ffmpeg
+#RUN apt-get -y install software-properties-common;\
+#        apt-add-repository ppa:jon-severinsson/ffmpeg;\
+#        apt-get update;\
+#        apt-get -y install ffmpeg
+
+RUN apt-add-repository ppa:samrog131/ppa \
+         apt-get update \
+         apt-get install FFmpeg-real \
+         ln -sf /opt/FFmpeg/bin/FFmpeg /usr/bin/FFmpeg
 
 # expose HTTP
 EXPOSE 80
