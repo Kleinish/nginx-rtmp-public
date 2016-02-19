@@ -1,0 +1,145 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="flowplayer-3.2.12.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<title>DemokratieLive.org - Player</title>
+
+</head><body>
+<div id="Background" style="background: url('http://demokratielive.org/images/logo.png')  no-repeat center center fixed;  -webkit-background-size: contain; -moz-background-size: contain; -o-background-size: contain; background-size: contain;opacity: 1;top: 0;left: 0;bottom: 0;right: 0;position: absolute;z-index: -1;"></div>
+<h1 id="Text" width=100% align="center" style="margin:auto; display:none; font-size:300%">DemokratieLive<br> <div style="font-size:50%">Powered by <a href="http://tenstepsahead.de/index.php?id=179" style="text-decoration:none">TenStepsAhead</div></h1>
+<div id="wrapper" style="display:none">
+<script>
+        window.onload = function() {
+		setTimeout(function() { displayText(0); }, 1500);
+	}
+
+        var displayText = function(i){
+                document.getElementById('Background').style.opacity=1 - (i/100);
+                document.getElementById('Text').style.opacity=i/100;
+                if (i<100) {
+                        setTimeout(function() { displayText(i+1); }, 7);
+		}
+		else {
+                        setTimeout(function() { displayVideo(0); }, 2000);
+		}
+	}
+
+	var displayVideo = function(i){
+		document.getElementById('wrapper').style.opacity=i/100;
+//                document.getElementById('Text').style.opacity=1 - (i/100);
+		if (i<100)
+			setTimeout(function() { displayVideo(i+1); }, 7);
+	}
+
+        document.getElementById('wrapper').style.opacity=0;
+        document.getElementById('wrapper').style.display='block';
+        document.getElementById('Text').style.opacity=0;
+        document.getElementById('Text').style.display='block';
+
+</script>
+<h2>Video</h2>
+	<div id="page">
+		<div style="color:red;font-size:28px" id="message"></div>
+		<a  style="display:block;width:520px;height:330px;" id="player"></a>
+
+		<script>
+
+			if (document.createElement('video').canPlayType('application/vnd.apple.mpegURL')) {
+				document.getElementById('page').innerHTML = '<video id="testchoi" src="http://stream.demokratielive.org/hls/livestream.m3u8" controls="controls" preload="preload" autostart="false" style="display:block; width:520px; height:330px; margin:auto;" />';
+			}
+			else
+			{
+//				alert("NO HLS Support");
+				
+				var player = flowplayer("player", "flowplayer-3.2.16.swf",
+				{
+					clip: {
+						autoPlay: false,
+						url: 'livestream',
+						provider: 'rtmp'
+						},
+					plugins: {
+						rtmp: {
+							url: 'flowplayer.rtmp-3.2.12.swf',
+							netConnectionUrl: 'rtmp://stream.demokratielive.org/live'
+						}
+					}
+				});
+			}			
+
+player.onFinish(function() {
+   // alert("finished")
+})
+
+player.onLoad(function() {
+   // alert("loaded")
+})
+
+player.onStart(function() {
+   // alert("started")
+})
+		</script>
+	</div>
+<h2>Audio</h2>
+	<div id="audio"></div>
+	<a  style="display:block;width:520px;height:25px" id="audioPlayer"></a>
+
+        <script>
+
+                        if (document.createElement('video').canPlayType('application/vnd.apple.mpegURL')) {
+				document.getElementById('audioPlayer').innerHTML = '<audio controls><source src="http://stream.demokratielive.org/mp3_m3u.php" type="audio/mpegURL" /></audio>';
+                        }
+                        else
+                        {
+				document.getElementById('audioPlayer').innerHTML = '';
+
+                                var player = flowplayer("audioPlayer", "flowplayer-3.2.16.swf",
+                                {
+					autoHide: false,
+                                        clip: {
+                                                autoPlay: false,
+                                                url: 'livestream',
+                                                provider: 'rtmp'
+                                                },
+                                        plugins: {
+                                                rtmp: {
+                                                        url: 'flowplayer.rtmp-3.2.12.swf',
+                                                        netConnectionUrl: 'rtmp://stream.demokratielive.org/audio'
+                                                },
+						controls: {
+							autoHide: {
+								enabled: false
+							}
+						}
+                                        }
+                                });
+			}
+	</script>
+
+
+<!-- a href="http://stream.demokratielive.org/mp3_m3u.php">mp3</a>
+
+<audio controls>
+    <source src="http://stream.demokratielive.org/mp3_m3u.php" type="audio/playlist" />
+</audio>
+
+
+<h2>jwplayer</h2>
+
+<audio src="mp3_m3u.php" controls > 
+	<a href ="mp3_m3u.php">Fallback für IE < 9</a>
+</audio>
+
+    <video
+        src="http://stream.demokratielive.org/mp3_m3u.php"
+        height="300" width="400"
+	controls="controls" 
+	style="display:block; 
+	width:520px; 
+	height:330px; 
+	margin:auto;"
+    / -->
+</div>
+</body></html>

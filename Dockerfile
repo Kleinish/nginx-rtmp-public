@@ -46,13 +46,14 @@ RUN mkdir -p /var/log/nginx/
 RUN ln -s /usr/local/nginx/html /var/www
 RUN mkdir -p /var/www/HLS/
 ADD stat.xsl /var/www/HLS/stat.xsl
+ADD html/* /var/www/
 
 ## run as daemon
 # Run
-# CMD service nginx start
+ CMD service nginx start
 
 ## run interactive
-  CMD service nginx start & /bin/bash
+#  CMD service nginx start & /bin/bash
 
 
 # Clean // TODO: NOT WORKING
