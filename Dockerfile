@@ -50,6 +50,7 @@ EXPOSE 80
 EXPOSE 1935
 
 ADD nginx.conf /usr/local/nginx/conf/nginx.conf
+ADD mime.types /usr/local/nginx/conf/mime.types
 
 RUN mkdir -p /var/log/nginx/
 RUN ln -s /usr/local/nginx/html /var/www
