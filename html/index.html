@@ -7,8 +7,8 @@
 	<title>DemokratieLive.org - Player</title>
 
 </head><body>
-<div id="Background" style="background: url('http://demokratielive.org/images/logo.png')  no-repeat center center fixed;  -webkit-background-size: contain; -moz-background-size: contain; -o-background-size: contain; background-size: contain;opacity: 1;top: 0;left: 0;bottom: 0;right: 0;position: absolute;z-index: -1;"></div>
-<h1 id="Text" width=100% align="center" style="margin:auto; display:none; font-size:300%">Kleinish&fiendsLive<br> <div style="font-size:50%">Powered by <a href="http://tenstepsahead.de/index.php?id=179" style="text-decoration:none">TenStepsAhead</div></h1>
+<div id="Background" style="background: url('http://files.gamebanana.com/img/ico/sprays/547e14dd4b049.png')  no-repeat center center fixed;  -webkit-background-size: contain; -moz-background-size: contain; -o-background-size: contain; background-size: contain;opacity: 1;top: 0;left: 0;bottom: 0;right: 0;position: absolute;z-index: -1;"></div>
+<h1 id="Text" width=100% align="center" style="margin:auto; display:none; font-size:300%">Kleinish & Fiends Live<br> <div style="font-size:50%">Powered by <a href="http://tenstepsahead.de/index.php?id=179" style="text-decoration:none">Wheredidyousay</div></h1>
 <div id="wrapper" style="display:none">
 <script>
         window.onload = function() {
@@ -47,7 +47,7 @@
 		<script>
 
 			if (document.createElement('video').canPlayType('application/vnd.apple.mpegURL')) {
-				document.getElementById('page').innerHTML = '<video id="testchoi" src="http://stream.demokratielive.org/hls/livestream.m3u8" controls="controls" preload="preload" autostart="false" style="display:block; width:520px; height:330px; margin:auto;" />';
+				document.getElementById('page').innerHTML = '<video id="testchoi" src="http://localhost/hls/livestream.m3u8" controls="controls" preload="preload" autostart="false" style="display:block; width:520px; height:330px; margin:auto;" />';
 			}
 			else
 			{
@@ -63,7 +63,7 @@
 					plugins: {
 						rtmp: {
 							url: 'flowplayer.rtmp-3.2.12.swf',
-							netConnectionUrl: 'rtmp://192.241.165.44/kleinish'
+							netConnectionUrl: 'rtmp://localhost/kleinish'
 						}
 					}
 				});
@@ -89,7 +89,7 @@ player.onStart(function() {
         <script>
 
                         if (document.createElement('video').canPlayType('application/vnd.apple.mpegURL')) {
-				document.getElementById('audioPlayer').innerHTML = '<audio controls><source src="http://stream.demokratielive.org/mp3_m3u.php" type="audio/mpegURL" /></audio>';
+				document.getElementById('audioPlayer').innerHTML = '<audio controls><source src="http://localhost/mp3_m3u.php" type="audio/mpegURL" /></audio>';
                         }
                         else
                         {
@@ -119,10 +119,10 @@ player.onStart(function() {
 	</script>
 
 
-<!-- a href="http://stream.demokratielive.org/mp3_m3u.php">mp3</a>
+<!-- a href="http://localhost/mp3_m3u.php">mp3</a>
 
 <audio controls>
-    <source src="http://stream.demokratielive.org/mp3_m3u.php" type="audio/playlist" />
+    <source src="http://localhost/mp3_m3u.php" type="audio/playlist" />
 </audio>
 
 
@@ -133,7 +133,7 @@ player.onStart(function() {
 </audio>
 
     <video
-        src="http://stream.demokratielive.org/mp3_m3u.php"
+        src="http://localhost/mp3_m3u.php"
         height="300" width="400"
 	controls="controls" 
 	style="display:block; 
