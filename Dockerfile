@@ -61,10 +61,10 @@ ADD html/* /var/www/
 
 ## run as daemon
 # Run
- CMD service nginx start
+# CMD service nginx start
 
 ## run interactive
-#  CMD service nginx start & /bin/bash
+  CMD service nginx start & /bin/bash
 
 
 # Clean // TODO: NOT WORKING
