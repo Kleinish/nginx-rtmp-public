@@ -47,7 +47,7 @@
 		<script>
 
 			if (document.createElement('video').canPlayType('application/vnd.apple.mpegURL')) {
-				document.getElementById('page').innerHTML = '<video id="testchoi" src="http://localhost/hls/livestream.m3u8" controls="controls" preload="preload" autostart="false" style="display:block; width:520px; height:330px; margin:auto;" />';
+				document.getElementById('page').innerHTML = '<video id="testchoi" src="http://192.241.165.44/hls/livestream.m3u8" controls="controls" preload="preload" autostart="false" style="display:block; width:520px; height:330px; margin:auto;" />';
 			}
 			else
 			{
@@ -63,7 +63,7 @@
 					plugins: {
 						rtmp: {
 							url: 'flowplayer.rtmp-3.2.12.swf',
-							netConnectionUrl: 'rtmp://localhost/kleinish'
+							netConnectionUrl: 'rtmp://192.241.165.44/live'
 						}
 					}
 				});
@@ -89,7 +89,7 @@ player.onStart(function() {
         <script>
 
                         if (document.createElement('video').canPlayType('application/vnd.apple.mpegURL')) {
-				document.getElementById('audioPlayer').innerHTML = '<audio controls><source src="http://localhost/mp3_m3u.php" type="audio/mpegURL" /></audio>';
+				document.getElementById('audioPlayer').innerHTML = '<audio controls><source src="http://192.241.165.44/mp3_m3u.php" type="audio/mpegURL" /></audio>';
                         }
                         else
                         {
@@ -106,7 +106,7 @@ player.onStart(function() {
                                         plugins: {
                                                 rtmp: {
                                                         url: 'flowplayer.rtmp-3.2.12.swf',
-                                                        netConnectionUrl: 'rtmp://192.241.165.44/kleinish'
+                                                        netConnectionUrl: 'rtmp://192.241.165.44/audio'
                                                 },
 						controls: {
 							autoHide: {
@@ -119,10 +119,10 @@ player.onStart(function() {
 	</script>
 
 
-<!-- a href="http://localhost/mp3_m3u.php">mp3</a>
+<!-- a href="http://192.241.165.44/mp3_m3u.php">mp3</a>
 
 <audio controls>
-    <source src="http://localhost/mp3_m3u.php" type="audio/playlist" />
+    <source src="http://192.241.165.44/mp3_m3u.php" type="audio/playlist" />
 </audio>
 
 
@@ -133,7 +133,7 @@ player.onStart(function() {
 </audio>
 
     <video
-        src="http://localhost/mp3_m3u.php"
+        src="http://192.241.165.44/mp3_m3u.php"
         height="300" width="400"
 	controls="controls" 
 	style="display:block; 
