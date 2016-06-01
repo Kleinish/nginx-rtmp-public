@@ -61,11 +61,11 @@ ADD html/* /var/www/
 
 ## run as daemon
 # Run
-# CMD service nginx start
+ CMD service nginx start
 
 ## run interactive
-  CMD service nginx start & /bin/bash
+#  CMD service nginx start & /bin/bash
 
 
 # Clean // TODO: NOT WORKING
-# RUN apt-get -y purge wget unzip build-essential libpcre3 libpcre3-dev libssl-dev software-properties-common
+ RUN apt-get -y purge wget && apt-get -y purge unzip && apt-get -y purge build-essential libpcre3 libpcre3-dev libssl-dev && apt-get -y purge software-properties-common
