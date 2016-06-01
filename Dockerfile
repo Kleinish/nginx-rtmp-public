@@ -6,6 +6,7 @@ FROM       ubuntu:latest
 
 # Format: MAINTAINER Name <email@addr.ess>
 MAINTAINER Andreas W. Prang <writeAmail@me.com>
+MAINTAINER Kelvin D. Klein <gamemasterkleinish@gmail.com
 
 # VARIABLES
 ENV nginxVersion nginx-1.9.2
@@ -68,4 +69,4 @@ ADD html/* /var/www/
 
 
 # Clean // TODO: NOT WORKING
- RUN apt-get -y purge wget && apt-get -y purge unzip && apt-get -y purge build-essential libpcre3 libpcre3-dev libssl-dev && apt-get -y purge software-properties-common
+ RUN apt-get -y purge wget && apt-get -y purge unzip && apt-get -y purge software-properties-common
