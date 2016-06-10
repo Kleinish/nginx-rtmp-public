@@ -69,4 +69,4 @@ ADD html/* /var/www/
 
 
 # Clean // TODO: NOT WORKING
- RUN apt-get -y purge wget && apt-get -y purge unzip && apt-get -y purge ca-certificates libidn11
+ RUN apt-get -y purge wget && apt-get -y purge unzip
