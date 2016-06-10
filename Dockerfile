@@ -6,11 +6,10 @@ FROM       ubuntu:latest
 
 # Format: MAINTAINER Name <email@addr.ess>
 MAINTAINER Andreas W. Prang <writeAmail@me.com>
-MAINTAINER Kelvin D. Klein <gamemasterkleinish@gmail.com
+MAINTAINER Kelvin D. Klein <gamemasterkleinish@gmail.com>
 
 # VARIABLES
 ENV nginxVersion nginx-1.9.2
-
 
 # Installation:
 RUN apt-get update;\
@@ -46,7 +45,7 @@ RUN apt-add-repository ppa:samrog131/ppa; \
          apt-get install FFmpeg-real; \
          ln -sf /opt/FFmpeg/bin/FFmpeg /usr/bin/FFmpeg
 
-# expose HTTP
+# Expose HTTP & RTMP
 EXPOSE 80
 EXPOSE 1935
 
@@ -60,13 +59,17 @@ RUN mkdir -p /var/www/HLS/
 ADD stat.xsl /var/www/HLS/stat.xsl
 ADD html/* /var/www/
 
+# Clean // TODO: NOT WORKING
+RUN apt-get clean -y;\
+        apt-get -y purge wget;\
+        apt-get -y purge unzip;\
+        apt-get -y purge build-essential libpcre3 libpcre3-dev libssl-dev software-properties-common
+
 ## run as daemon
 # Run
- CMD service nginx start
+CMD service nginx start
 
 ## run interactive
 #  CMD service nginx start & /bin/bash
 
 
-# Clean // TODO: NOT WORKING
- RUN apt-get -y purge wget && apt-get -y purge unzip
